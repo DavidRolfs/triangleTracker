@@ -34,14 +34,33 @@ namespace Triangle.Objects
 
     public int GetTriangleType()
     {
-      if(_side1 == _side2)
+      if(_side1 + _side2 <= _side3 || _side2 + _side3 <= _side1 || _side1 + _side3 <= _side2)
       {
+        //not a triangle
         return _side1;
       }
       else
       {
-        return _side2;
+        if(_side1 == _side2 && _side1 == _side3)
+        {
+          //Equilateral
+          return _side1;
+        }
+        else if(_side1 == _side2 || _side1 == _side3 || _side2 == _side3)
+        {
+          //Isosceles
+          return _side2;
+        }
+         else if(_side1 !=_side2 && _side1 != _side3 && _side2 != _side3)
+         {
+           //Scalene
+           return _side3;
+         }
+        else
+        {
+          return _side3;
+        }
       }
-    }
+   }
   }
 }
