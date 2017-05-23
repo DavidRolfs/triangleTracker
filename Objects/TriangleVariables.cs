@@ -32,33 +32,38 @@ namespace Triangle.Objects
       _side3 = newSide3;
     }
 
-    public int GetTriangleType()
+    public string GetTriangleType()
     {
       if(_side1 + _side2 <= _side3 || _side2 + _side3 <= _side1 || _side1 + _side3 <= _side2)
       {
         //not a triangle
-        return _side1;
+        string result = "not a triangle";
+        return result;
       }
       else
       {
         if(_side1 == _side2 && _side1 == _side3)
         {
           //Equilateral
-          return _side1;
+          string result = "Equilateral";
+          return result;
         }
         else if(_side1 == _side2 || _side1 == _side3 || _side2 == _side3)
         {
           //Isosceles
-          return _side2;
+          string result = "Isosceles";
+          return result;
         }
          else if(_side1 !=_side2 && _side1 != _side3 && _side2 != _side3)
          {
            //Scalene
-           return _side3;
+           string result = "Scalene";
+           return result;
          }
         else
         {
-          return _side3;
+          string result = "not a triangle";
+          return result;
         }
       }
    }
